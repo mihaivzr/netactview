@@ -1,0 +1,405 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: netactview \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-29 19:35+0300\n"
+"PO-Revision-Date: 2010-06-07 19:37+0200\n"
+"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"Language-Team: Italian\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/main.c:75
+msgid " - view network connections"
+msgstr " - visualizza connessioni di rete"
+
+#: ../src/mainwindow.c:95
+msgid "Protocol"
+msgstr "Protocollo"
+
+#: ../src/mainwindow.c:96
+msgid "Local Host"
+msgstr "Sistema Locale"
+
+#: ../src/mainwindow.c:97 ../src/netactview.glade.h:20
+msgid "Local Address"
+msgstr "Indirizzo Locale"
+
+#: ../src/mainwindow.c:98
+msgid "Local Port"
+msgstr "Porta locale"
+
+#: ../src/mainwindow.c:99
+msgid "State"
+msgstr "Stato"
+
+#: ../src/mainwindow.c:100
+msgid "Remote Address"
+msgstr "Indirizzo Remoto"
+
+#: ../src/mainwindow.c:101
+msgid "Remote Port"
+msgstr "Porta Remota"
+
+#: ../src/mainwindow.c:102
+msgid "Remote Host"
+msgstr "Sistema Remoto"
+
+#: ../src/mainwindow.c:103
+msgid "Pid"
+msgstr "Pid"
+
+#: ../src/mainwindow.c:104
+msgid "Program"
+msgstr "Programmma"
+
+#: ../src/mainwindow.c:105 ../src/netactview.glade.h:19
+msgid "Command"
+msgstr "Comando"
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:592
+#, c-format
+msgid "Sent: %s +%s/s        "
+msgstr "Inviati: %s +%s/s        "
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:594
+#, c-format
+msgid "Received: %s +%s/s        "
+msgstr "Ricevuti: %s +%s/s        "
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:651
+#, c-format
+msgid "Established: %u/%u"
+msgstr "Stabilite: %u/%u"
+
+#: ../src/mainwindow.c:662
+#, c-format
+msgid "Visible: %u"
+msgstr ""
+
+#. Header for the saved file. Keep the formatting intact.
+#: ../src/mainwindow.c:1502
+#, c-format
+msgid ""
+"Protocol   Local Address : Local Port   State   Remote Address : Remote "
+"Port   Remote Host   Local Host   Pid   Program   Command"
+msgstr ""
+"Protocollo   IP Locale : Porta Locale   Stato   IP Remoto : Porta Remota   "
+"Sistema Remoto   Sistema Locale   Pid   Programmma   Comando"
+
+#. Header for the saved CSV file. Keep the formatting intact. Do not add additional double quotes.
+#: ../src/mainwindow.c:1608
+#, c-format
+msgid ""
+"\"Date\",\"Time\",\"Protocol\",\"Local Address\",\"Local Port\",\"State\","
+"\"Remote Address\",\"Remote Port\",\"Remote Host\",\"Pid\",\"Program\","
+"\"Command\",\"Local Host\",\"Local Port Name\",\"Remote Port Name\""
+msgstr ""
+
+#: ../src/mainwindow.c:1738
+msgid "Save As..."
+msgstr "Salva come..."
+
+#: ../src/mainwindow.c:1747
+msgid "All files"
+msgstr ""
+
+#: ../src/mainwindow.c:1750
+msgid "Text files (*.txt)"
+msgstr ""
+
+#: ../src/mainwindow.c:1753
+msgid "CSV files (*.csv)"
+msgstr ""
+
+#: ../src/mainwindow.c:1776
+msgid "connections.txt"
+msgstr "connessioni.txt"
+
+#: ../src/mainwindow.c:1804
+#, c-format
+msgid ""
+"Error saving file '%s'. \n"
+"%s"
+msgstr ""
+"Errore nel salvataggio del file '%s'. \n"
+"%s"
+
+#: ../src/mainwindow.c:1848
+msgid "about.program_name|Net Activity Viewer"
+msgstr "Visualizzatore attività di rete"
+
+#: ../src/mainwindow.c:1866
+#, c-format
+msgid ""
+"Can't open wiki URL: \"%s\".\n"
+"Please check that gnome vfs and mime configurations work correctly with the "
+"default web browser."
+msgstr ""
+
+#: ../src/mainwindow.c:1921
+msgid "Restart as root failed. You may need to install gksu."
+msgstr "Riavvio come root fallito. Potrebbe essere necessario installare gksu."
+
+#: ../src/mainwindow.c:2214
+#, c-format
+msgid "Copy by '%s'"
+msgstr ""
+
+#: ../src/mainwindow.c:2218 ../src/netactview.glade.h:51
+msgid "Copy by 'Column'"
+msgstr ""
+
+#: ../src/mainwindow.c:2631
+msgid "main_window.title|Net Activity Viewer"
+msgstr "Visualizzatore attività di rete"
+
+#: ../src/netactview.glade.h:1
+msgid "_File"
+msgstr "_File"
+
+#: ../src/netactview.glade.h:2
+msgid "Restart As Root"
+msgstr "Riavvia come _root"
+
+#: ../src/netactview.glade.h:3
+msgid "_Edit"
+msgstr "_Modifica"
+
+#: ../src/netactview.glade.h:4
+msgid "Copy selected line"
+msgstr "Copia riga selezionata"
+
+#: ../src/netactview.glade.h:5
+msgid "_Copy Line"
+msgstr "_Copia Riga"
+
+#: ../src/netactview.glade.h:6
+msgid "Copy Remote _Address"
+msgstr "Copia _Indirizzo Remoto"
+
+#: ../src/netactview.glade.h:7
+msgid "Copy Remote _Host"
+msgstr "Copia _Sistema Remoto"
+
+#: ../src/netactview.glade.h:8
+msgid "_Filter"
+msgstr "_Filtro"
+
+#: ../src/netactview.glade.h:9
+msgid "Auto Refresh"
+msgstr "Aggiornamento automatico"
+
+#: ../src/netactview.glade.h:10
+msgid "Enabled"
+msgstr "Attivato"
+
+#: ../src/netactview.glade.h:11
+msgid "4 seconds"
+msgstr "4 secondi"
+
+#: ../src/netactview.glade.h:12
+msgid "1 second"
+msgstr "1 secondo"
+
+#: ../src/netactview.glade.h:13
+msgid "1/4 seconds"
+msgstr "1/4 di secondo"
+
+#: ../src/netactview.glade.h:14
+msgid "1/16 seconds"
+msgstr "1/16 di secondo"
+
+#: ../src/netactview.glade.h:15
+msgid "_View"
+msgstr "_Visualizza"
+
+#: ../src/netactview.glade.h:16
+msgid "_Closed Connections"
+msgstr "_Connessioni Chiuse"
+
+#: ../src/netactview.glade.h:17
+msgid "Not _Established Connections"
+msgstr "Connessioni _non stabilite"
+
+#: ../src/netactview.glade.h:18
+msgid "Color Highlight"
+msgstr "_Evidenziatura colorata"
+
+#: ../src/netactview.glade.h:21
+msgid "Local Host Name"
+msgstr "Nome Sistema Locale"
+
+#: ../src/netactview.glade.h:22
+msgid "Port Name"
+msgstr "Nome Porta"
+
+#: ../src/netactview.glade.h:23
+msgid "Remote Host Name"
+msgstr "Nome Sistema Remoto"
+
+#: ../src/netactview.glade.h:24
+msgid "_Help"
+msgstr "A_iuto"
+
+#: ../src/netactview.glade.h:25
+msgid "Wiki"
+msgstr ""
+
+#: ../src/netactview.glade.h:26
+msgid "Save"
+msgstr "Salva"
+
+#: ../src/netactview.glade.h:27
+msgid "Copy Line"
+msgstr "Copia riga"
+
+#: ../src/netactview.glade.h:28
+msgid "Refresh"
+msgstr "Aggiorna"
+
+#: ../src/netactview.glade.h:29
+msgid "Established connections only"
+msgstr ""
+
+#: ../src/netactview.glade.h:30
+msgid "Established"
+msgstr ""
+
+#: ../src/netactview.glade.h:31
+msgid "Filter: "
+msgstr "Filtro: "
+
+#: ../src/netactview.glade.h:32
+msgid "Clear"
+msgstr ""
+
+#: ../src/netactview.glade.h:33
+msgid "Case sensitive"
+msgstr ""
+
+#: ../src/netactview.glade.h:34
+msgid ""
+"Operators:\n"
+"!  - Not\n"
+"\"\"  - Quote\n"
+"()  - Group\n"
+"OR  - logical OR\n"
+"Space is logical AND\n"
+"Ex: tcp !80 (firefox OR \"wget -t 5\")"
+msgstr ""
+
+#: ../src/netactview.glade.h:41
+msgid "Visible: 0"
+msgstr ""
+
+#: ../src/netactview.glade.h:42
+msgid "Close"
+msgstr "Chiudi"
+
+#: ../src/netactview.glade.h:43
+msgid "About Net Activity Viewer"
+msgstr "Informazioni sul visualizzatore di attività di rete"
+
+#: ../src/netactview.glade.h:44
+msgid ""
+"Network connections viewer similar\n"
+" in functionality with netstat."
+msgstr ""
+"Visualizzatore di connessioni di rete \n"
+" simile in funzionalità a netstat."
+
+#: ../src/netactview.glade.h:46
+msgid ""
+"This free software is licensed using GNU GPL version 2 or later.\n"
+"This licence allows you to run the unmodified program without restrictions.\n"
+"Please read its complete terms from the distributed COPYING file or on GNU "
+"website:\n"
+"http://www.gnu.org/licenses/gpl-2.0.html\n"
+msgstr ""
+"Questo programma è software libero e rilasciato sotto GNU GPL versioone 2 o "
+"successiva.\n"
+"Questa licenza permette l'esecuzione del programma non modificato senza "
+"restrizioni.\n"
+"Prego leggere i suoi termini completi dal file COPYING incluso oppure sul "
+"sito web GNU:\n"
+"http://www.gnu.org/licenses/gpl-2.0.html\n"
+
+#: ../src/netactview.glade.h:52
+msgid "Copy selection for current column"
+msgstr ""
+
+#: ../src/netactview.glade.h:53
+msgid "Filter on selection by column"
+msgstr ""
+
+#: ../src/netactview.glade.h:54
+msgid "Filter In"
+msgstr ""
+
+#: ../src/netactview.glade.h:55
+msgid "Filter on Not selection by column"
+msgstr ""
+
+#: ../src/netactview.glade.h:56
+msgid "Filter Out"
+msgstr ""
+
+#: ../data/netactview.desktop.in.h:1
+msgid "Net Activity Viewer"
+msgstr "Visualizzatore attività di rete"
+
+#: ../data/netactview.desktop.in.h:2
+msgid "View network connections"
+msgstr "Visualizza connessioni di rete"
+
+#: ../src/utils.c:132
+#, c-format
+msgid "%Lu B"
+msgstr "%Lu B"
+
+#: ../src/utils.c:134
+#, c-format
+msgid "%Lu KB"
+msgstr "%Lu KB"
+
+#: ../src/utils.c:134
+#, c-format
+msgid "%Lu.%Lu KB"
+msgstr "%Lu,%Lu KB"
+
+#: ../src/utils.c:136
+#, c-format
+msgid "%Lu MB"
+msgstr "%Lu MB"
+
+#: ../src/utils.c:136
+#, c-format
+msgid "%Lu.%Lu MB"
+msgstr "%Lu,%Lu MB"
+
+#: ../src/utils.c:138
+#, c-format
+msgid "%Lu GB"
+msgstr "%Lu GB"
+
+#: ../src/utils.c:138
+#, c-format
+msgid "%Lu.%Lu GB"
+msgstr "%Lu,%Lu GB"
+
+#: ../src/utils.c:140
+#, c-format
+msgid "%Lu TB"
+msgstr "%Lu TB"
+
+#: ../src/utils.c:140
+#, c-format
+msgid "%Lu.%Lu TB"
+msgstr "%Lu,%Lu TB"

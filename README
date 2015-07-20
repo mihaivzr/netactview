@@ -1,0 +1,35 @@
+Netactview - Net Activity Viewer
+----------------------------------------------------
+
+    Netactview is a graphical network connections viewer similar in 
+functionality with netstat. 
+    It includes features like process information, host name retrieval, 
+automatic refresh, sorting, filtering and csv save. It has a fully featured 
+GTK 2 graphical interface.
+
+You can find more information online at:
+http://netactview.sourceforge.net/
+
+
+
+Installation:
+
+In order to compile the sources you will need:
+Compilation tools: gcc, make
+Other tools: gettext, perl xml parser, intltool
+Libraries (development packages): gtk+-2 (at least 2.8), libglade-2, 
+ gnome-vfs-2 (at least 2.4), glib-2 (at least 2.8), libgnome-2, gconf-2, 
+ libgtop-2 (at least 2.12)
+
+On Ubuntu the needed packages are: gcc, make, gettext, libxml-parser-perl, 
+ intltool, libgnome2-dev, libgtk2.0-dev, libglade2-dev, libgconf2-dev, 
+ libgtop2-dev
+
+Once you have the prerequisites run from the sources directory:
+./configure
+make
+make install     #Run as root. On Ubuntu: sudo make install 
+
+
+Please see the INSTALL file for details regarding the configure script.
+

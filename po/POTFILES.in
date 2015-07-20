@@ -1,0 +1,9 @@
+# List of source files containing translatable strings.
+
+[encoding: UTF-8]
+
+src/main.c
+src/mainwindow.c
+src/netactview.glade
+data/netactview.desktop.in
+src/utils.c

@@ -1,0 +1,422 @@
+# Romanian translations for netactview package.
+# Copyright (C) 2007 THE netactview'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the netactview package.
+# Mihai <mihaiv@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: netactview 0.6.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-29 19:35+0300\n"
+"PO-Revision-Date: 2015-03-25 09:59+0200\n"
+"Last-Translator: Mihai Varzaru <mihaiv@gmail.com>\n"
+"Language-Team: Romanian\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+#: ../src/main.c:75
+msgid " - view network connections"
+msgstr " - vezi conexiunile la reţea"
+
+#: ../src/mainwindow.c:95
+msgid "Protocol"
+msgstr "Protocol"
+
+#: ../src/mainwindow.c:96
+msgid "Local Host"
+msgstr "Adresă locală"
+
+#: ../src/mainwindow.c:97 ../src/netactview.glade.h:20
+msgid "Local Address"
+msgstr "IP local"
+
+#: ../src/mainwindow.c:98
+msgid "Local Port"
+msgstr "Port local"
+
+#: ../src/mainwindow.c:99
+msgid "State"
+msgstr "Stare"
+
+#: ../src/mainwindow.c:100
+msgid "Remote Address"
+msgstr "IP destinaţie"
+
+#: ../src/mainwindow.c:101
+msgid "Remote Port"
+msgstr "Port destinaţie"
+
+#: ../src/mainwindow.c:102
+msgid "Remote Host"
+msgstr "Adresă destinaţie"
+
+#: ../src/mainwindow.c:103
+msgid "Pid"
+msgstr "Pid"
+
+#: ../src/mainwindow.c:104
+msgid "Program"
+msgstr "Program"
+
+#: ../src/mainwindow.c:105 ../src/netactview.glade.h:19
+msgid "Command"
+msgstr "Comandă"
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:592
+#, c-format
+msgid "Sent: %s +%s/s        "
+msgstr "Trimis: %s +%s/s        "
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:594
+#, c-format
+msgid "Received: %s +%s/s        "
+msgstr "Primit: %s +%s/s        "
+
+#. End white space used only to specify a bigger fixed size
+#: ../src/mainwindow.c:651
+#, c-format
+msgid "Established: %u/%u"
+msgstr "Stabilite: %u/%u"
+
+#: ../src/mainwindow.c:662
+#, c-format
+msgid "Visible: %u"
+msgstr "Vizibile: %u"
+
+#. Header for the saved file. Keep the formatting intact.
+#: ../src/mainwindow.c:1502
+#, c-format
+msgid ""
+"Protocol   Local Address : Local Port   State   Remote Address : Remote "
+"Port   Remote Host   Local Host   Pid   Program   Command"
+msgstr ""
+"Protocol   IP Local : Port Local   Stare   IP Destinaţie : Port Destinaţie   "
+"Adresă Destinaţie   Adresă Locală   Pid   Program   Comandă"
+
+#. Header for the saved CSV file. Keep the formatting intact. Do not add additional double quotes.
+#: ../src/mainwindow.c:1608
+#, c-format
+msgid ""
+"\"Date\",\"Time\",\"Protocol\",\"Local Address\",\"Local Port\",\"State\","
+"\"Remote Address\",\"Remote Port\",\"Remote Host\",\"Pid\",\"Program\","
+"\"Command\",\"Local Host\",\"Local Port Name\",\"Remote Port Name\""
+msgstr ""
+"\"Data\",\"Timp\",\"Protocol\",\"IP Local\",\"Port Local\",\"Stare\",\"IP "
+"Destinație\",\"Port Destinație\",\"Adresă destinație\",\"Pid\",\"Program\","
+"\"Comandă\",\"Adresă locală\",\"Nume port local\",\"Nume port destinație\""
+
+#: ../src/mainwindow.c:1738
+msgid "Save As..."
+msgstr "Salvează ca..."
+
+#: ../src/mainwindow.c:1747
+msgid "All files"
+msgstr "Toate fișierele"
+
+#: ../src/mainwindow.c:1750
+msgid "Text files (*.txt)"
+msgstr "Fișiere text (*.txt)"
+
+#: ../src/mainwindow.c:1753
+msgid "CSV files (*.csv)"
+msgstr "Fișiere CSV (*.csv)"
+
+#: ../src/mainwindow.c:1776
+msgid "connections.txt"
+msgstr "conexiuni.txt"
+
+#: ../src/mainwindow.c:1804
+#, c-format
+msgid ""
+"Error saving file '%s'. \n"
+"%s"
+msgstr ""
+"Eroare la salvarea fişierului '%s'. \n"
+"%s"
+
+#: ../src/mainwindow.c:1848
+msgid "about.program_name|Net Activity Viewer"
+msgstr "Net Activity Viewer"
+
+#: ../src/mainwindow.c:1866
+#, c-format
+msgid ""
+"Can't open wiki URL: \"%s\".\n"
+"Please check that gnome vfs and mime configurations work correctly with the "
+"default web browser."
+msgstr ""
+"Nu am putut deschide adresa wiki: \"%s\".\n"
+"Vă rog să verificaţi configuraţiile gnome vfs şi mime pentru funcţionare "
+"corectă cu navigatorul de internet implicit."
+
+#: ../src/mainwindow.c:1921
+msgid "Restart as root failed. You may need to install gksu."
+msgstr "Restart ca root a eşuat. S-ar putea să fie nevoie a instala gksu."
+
+#: ../src/mainwindow.c:2214
+#, c-format
+msgid "Copy by '%s'"
+msgstr "Copiază '%s'"
+
+#: ../src/mainwindow.c:2218 ../src/netactview.glade.h:51
+msgid "Copy by 'Column'"
+msgstr "Copiază 'Coloana'"
+
+#: ../src/mainwindow.c:2631
+msgid "main_window.title|Net Activity Viewer"
+msgstr "Vizualizator de conexiuni la reţea"
+
+#: ../src/netactview.glade.h:1
+msgid "_File"
+msgstr "_Fişier"
+
+#: ../src/netactview.glade.h:2
+msgid "Restart As Root"
+msgstr "Restartează ca root"
+
+#: ../src/netactview.glade.h:3
+msgid "_Edit"
+msgstr "_Editare"
+
+#: ../src/netactview.glade.h:4
+msgid "Copy selected line"
+msgstr "Copiază linia selectată"
+
+#: ../src/netactview.glade.h:5
+msgid "_Copy Line"
+msgstr "_Copiază linie"
+
+#: ../src/netactview.glade.h:6
+msgid "Copy Remote _Address"
+msgstr "Copiază _IP destinaţie"
+
+#: ../src/netactview.glade.h:7
+msgid "Copy Remote _Host"
+msgstr "Copiază _adresă destinaţie"
+
+#: ../src/netactview.glade.h:8
+msgid "_Filter"
+msgstr "_Filtru"
+
+#: ../src/netactview.glade.h:9
+msgid "Auto Refresh"
+msgstr "Actualizare automată"
+
+#: ../src/netactview.glade.h:10
+msgid "Enabled"
+msgstr "Activat"
+
+#: ../src/netactview.glade.h:11
+msgid "4 seconds"
+msgstr "4 secunde"
+
+#: ../src/netactview.glade.h:12
+msgid "1 second"
+msgstr "1 secundă"
+
+#: ../src/netactview.glade.h:13
+msgid "1/4 seconds"
+msgstr "1/4 secunde"
+
+#: ../src/netactview.glade.h:14
+msgid "1/16 seconds"
+msgstr "1/16 secunde"
+
+#: ../src/netactview.glade.h:15
+msgid "_View"
+msgstr "_Vizualizare"
+
+#: ../src/netactview.glade.h:16
+msgid "_Closed Connections"
+msgstr "Conexiuni î_nchise"
+
+#: ../src/netactview.glade.h:17
+msgid "Not _Established Connections"
+msgstr "Conexiuni ne_stabilite"
+
+#: ../src/netactview.glade.h:18
+msgid "Color Highlight"
+msgstr "Culori subliniere"
+
+#: ../src/netactview.glade.h:21
+msgid "Local Host Name"
+msgstr "Adresă locală"
+
+#: ../src/netactview.glade.h:22
+msgid "Port Name"
+msgstr "Nume port"
+
+#: ../src/netactview.glade.h:23
+msgid "Remote Host Name"
+msgstr "Adresă destinaţie"
+
+#: ../src/netactview.glade.h:24
+msgid "_Help"
+msgstr "_Ajutor"
+
+#: ../src/netactview.glade.h:25
+msgid "Wiki"
+msgstr "Wiki"
+
+#: ../src/netactview.glade.h:26
+msgid "Save"
+msgstr "Salvează"
+
+#: ../src/netactview.glade.h:27
+msgid "Copy Line"
+msgstr "Copiază linie"
+
+#: ../src/netactview.glade.h:28
+msgid "Refresh"
+msgstr "Actualizare"
+
+#: ../src/netactview.glade.h:29
+msgid "Established connections only"
+msgstr "Doar conexiunile stabilite"
+
+#: ../src/netactview.glade.h:30
+msgid "Established"
+msgstr "Stabilite"
+
+#: ../src/netactview.glade.h:31
+msgid "Filter: "
+msgstr "Filtru: "
+
+#: ../src/netactview.glade.h:32
+msgid "Clear"
+msgstr "Șterge"
+
+#: ../src/netactview.glade.h:33
+msgid "Case sensitive"
+msgstr "Sensibil la majuscule"
+
+#: ../src/netactview.glade.h:34
+msgid ""
+"Operators:\n"
+"!  - Not\n"
+"\"\"  - Quote\n"
+"()  - Group\n"
+"OR  - logical OR\n"
+"Space is logical AND\n"
+"Ex: tcp !80 (firefox OR \"wget -t 5\")"
+msgstr ""
+"Operatori:\n"
+"!  - Negație\n"
+"\"\"  - Citat\n"
+"()  - Grupare\n"
+"OR  - Ori logic\n"
+"Spațiul este Și logic\n"
+"Ex: tcp !80 (firefox OR \"wget -t 5\")"
+
+#: ../src/netactview.glade.h:41
+msgid "Visible: 0"
+msgstr "Vizibile: 0"
+
+#: ../src/netactview.glade.h:42
+msgid "Close"
+msgstr "Închide"
+
+#: ../src/netactview.glade.h:43
+msgid "About Net Activity Viewer"
+msgstr "Despre Net Activity Viewer"
+
+#: ../src/netactview.glade.h:44
+msgid ""
+"Network connections viewer similar\n"
+" in functionality with netstat."
+msgstr ""
+"Vizualizator de conexiuni la reţea\n"
+" similar ca funcţionalitate cu netstat."
+
+#: ../src/netactview.glade.h:46
+msgid ""
+"This free software is licensed using GNU GPL version 2 or later.\n"
+"This licence allows you to run the unmodified program without restrictions.\n"
+"Please read its complete terms from the distributed COPYING file or on GNU "
+"website:\n"
+"http://www.gnu.org/licenses/gpl-2.0.html\n"
+msgstr ""
+"Licenţa acestui program este GNU GPL versiunea 2 sau mai nouă.\n"
+"Această licenţă vă permite să rulaţi fară restricţii programul nemodificat.\n"
+"Vă rog să citiţi termenii compleţi ai licenţei din fișierul distribuit "
+"COPYING sau pe siteul GNU:\n"
+"http://www.gnu.org/licenses/gpl-2.0.html\n"
+
+#: ../src/netactview.glade.h:52
+msgid "Copy selection for current column"
+msgstr "Copiză selecția pentru coloana curentă"
+
+#: ../src/netactview.glade.h:53
+msgid "Filter on selection by column"
+msgstr "Filtrează incluzând selecția dupa coloană"
+
+#: ../src/netactview.glade.h:54
+msgid "Filter In"
+msgstr "Filtrează incluzând"
+
+#: ../src/netactview.glade.h:55
+msgid "Filter on Not selection by column"
+msgstr "Filtrează excluzând selecția după coloană"
+
+#: ../src/netactview.glade.h:56
+msgid "Filter Out"
+msgstr "Filtrează excluzând"
+
+#: ../data/netactview.desktop.in.h:1
+msgid "Net Activity Viewer"
+msgstr "Vizualizator de conexiuni"
+
+#: ../data/netactview.desktop.in.h:2
+msgid "View network connections"
+msgstr "Vezi conexiunile la reţea"
+
+#: ../src/utils.c:132
+#, c-format
+msgid "%Lu B"
+msgstr "%Lu B"
+
+#: ../src/utils.c:134
+#, c-format
+msgid "%Lu KB"
+msgstr "%Lu KB"
+
+#: ../src/utils.c:134
+#, c-format
+msgid "%Lu.%Lu KB"
+msgstr "%Lu,%Lu KB"
+
+#: ../src/utils.c:136
+#, c-format
+msgid "%Lu MB"
+msgstr "%Lu MB"
+
+#: ../src/utils.c:136
+#, c-format
+msgid "%Lu.%Lu MB"
+msgstr "%Lu,%Lu MB"
+
+#: ../src/utils.c:138
+#, c-format
+msgid "%Lu GB"
+msgstr "%Lu GB"
+
+#: ../src/utils.c:138
+#, c-format
+msgid "%Lu.%Lu GB"
+msgstr "%Lu,%Lu GB"
+
+#: ../src/utils.c:140
+#, c-format
+msgid "%Lu TB"
+msgstr "%Lu TB"
+
+#: ../src/utils.c:140
+#, c-format
+msgid "%Lu.%Lu TB"
+msgstr "%Lu,%Lu TB"

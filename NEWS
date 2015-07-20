@@ -1,0 +1,141 @@
+netactview 0.6.4
+--------------
+ - Fixed processing of commands and process names with invalid utf-8 characters. 
+   Some commands with bad utf-8 characters lead to an out of buffer read and 
+   possibly a denial of service security vulnerability (segfault application 
+   crash). No path for memory corruption or code execution was found. 
+   To exploit the potential vulnerability an attacker needs to control an utf-8
+   invalid sub-string in the command line of an application that uses network 
+   resources (ex: non URI or invalid URI encoding file name).
+ - Fixed configuration file validation to not allow huge configuration files.
+   A configuration file with a GB scale filter would result in an application
+   crash with memory corruption and possibly code execution. This had some small 
+   potential to be exploited as a privilege authorization avoidance method to 
+   get root from a sudo administrator at a netactview run with sudo/gksu, if the 
+   attacker can already modify current sudo user configuration files. An attack
+   may be practical only on high end servers.
+ - Fixed the display of multiple multicast dns connections listening on the
+   same port. If process information was not fully available some of the 
+   connections with with identical protocol, addresses and ports would not be
+   displayed. The fix makes all identical connections visible and uses 
+   additional identification information (inode) that is more often usable than
+   the process ID. There still remain some connection tracking issues that will
+   be handled better in netactview 0.7 .
+ - Fixed the connections list save when saving as root to a folder that the
+   current sudo user can modify. The file was not saved with the sudo user as 
+   owner in some cases.
+ - Limited the DNS cache to prevent it from becoming a memory leak if the
+   application is left open for a long time on a busy networking computer.
+ - Implemented a few other small fixes.
+ - Implemented some additional defence in depth measures to make security
+   vulnerabilities less likely.
+
+
+netactview 0.6.3
+--------------
+    - Updated the location of the Wiki documentation to:
+      http://netactview.sourceforge.net/wiki/
+      The old wiki address will not be available after 2014-06-19 because
+      sourceforge.net retires the hosted apps.
+
+
+netactview 0.6.2
+--------------
+    - Fixed connections list refresh on 0 connections
+
+
+netactview 0.6.1
+--------------
+    - Fixed a network statistics bug visible when using PPPoE connections
+
+
+netactview 0.6
+--------------
+    - Added filter operators
+    - Added save as CSV
+    - Added contextual column copy
+    - Added Italian and Russian translations.
+    - Added wiki documentation
+
+
+netactview 0.5.1
+-----------------
+    - Fixed a bug in window size saving that appeared on XFCE.
+
+
+netactview 0.5
+-----------------
+    - Saving window size and state.
+    - Added Estonian and Portuguese translations.
+
+
+netactview 0.4.1
+-----------------
+    - Fixed a filtering bug. Updated and closed connections were not filtered properly.
+
+
+netactview 0.4
+----------------
+    - Added color highlight for new and closed connections
+    - Using gnome fixed width font for network statistics
+
+
+netactview 0.3.1
+----------------
+    - Fixed closed UDP enpoints status
+
+
+netactview 0.3
+----------------
+    - Added filtering.
+    - Fixed a suspend/resume bug.
+
+
+netactview 0.2.2
+----------------
+    - Fixed a low risk security vulnerability in the restart as root action.
+      An application which could already run as a normal user could have intercepted
+      that action in order to run as root.
+    Edit 2015-03-30: 
+    * 'normal user' is here the ubuntu default desktop user which is a sudo 
+       administrator
+    * this was a privilege authorization avoidance vulnerability (as in UAC 
+      avoidance, but with a distinct user root that actually owns the 
+      administrative tasks and effects)
+    * it may not be a vulnerability if gksu (used by 'restart as root') is not 
+      meant as an UAC alternative; still weak, in case gksu or its replacements 
+      are updated to be clearly an UAC (User Account Control) alternative
+
+
+netactview 0.2.1
+----------------
+    - Fixed incorrect process name display. On some occasions, for not 
+      established connections, the shown process was not the process that 
+      created the connection.
+    - Improved error checking at program start.
+
+
+netactview 0.2
+--------------
+    - Added port service names
+    - Added basic network statistics: bytes sent, bytes received
+    - Added restart as root
+    - Rounded up some of the existing features
+
+
+netactview 0.1
+--------------
+    This is the first Net Activity Viewer version.
+    
+    * It includes all the basic stuff:
+        - obtains the list of active network connections (tcp, udp, tcp6, udp6)
+          from the kernel.
+        - obtains process information for the active network connections (pid, 
+          name, command)
+        - host name retrieval
+        - automatic refresh
+        - sorting
+        - some information filtering
+        - copy and save facilities
+        - automatic options state save and restore
+

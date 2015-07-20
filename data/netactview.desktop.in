@@ -1,0 +1,9 @@
+[Desktop Entry]
+_Name=Net Activity Viewer
+_Comment=View network connections
+Exec=netactview
+Icon=netactview
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Network;Monitor;
