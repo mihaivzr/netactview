@@ -1,0 +1,31 @@
+Source: netactview
+Section: net
+Priority: optional
+Maintainer: Mihai Varzaru <mihaiv@gmail.com>
+Build-Depends: debhelper (>= 5), 
+               autotools-dev, 
+               libxml-parser-perl, 
+               pkg-config,
+               gettext,
+               intltool,
+               libgtk2.0-dev (>= 2.8), 
+               libglade2-dev, 
+               libgnomevfs2-dev (>= 2.4), 
+               libglib2.0-dev (>= 2.8), 
+               libgnome2-dev, 
+               libgconf2-dev,
+               libgtop2-dev,
+               gksu
+Standards-Version: 3.8.0
+Homepage: http://netactview.sourceforge.net
+
+Package: netactview
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gksu
+Description: Net Activity Viewer
+ Netactview is a graphical network connections viewer similar in 
+ functionality with netstat.
+ It includes features like process information, host name retrieval, 
+ automatic refresh, sorting, filtering and csv save. It has a fully 
+ featured GTK 2 graphical interface.
+

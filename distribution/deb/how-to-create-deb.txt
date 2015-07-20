@@ -1,0 +1,34 @@
+Documentation:
+ - Debian maintainers guide: 
+   * http://www.debian.org/doc/manuals/maint-guide/index.en.html
+ - Building multiple packages for deployment on different Ubuntu versions (works for modern versions): 
+   * http://askubuntu.com/questions/103995/building-multiple-packages-for-deployment-on-different-ubuntu-versions
+
+
+Steps:
+1. Update package source steps:
+ - Create netactview source archive: 'make dist'
+ - Update the files in the debian folder:
+   * changelog - adding the new release is required; use previous releases as model and get date with 'date --rfc-2822'
+ - Copy the debian folder to a clean netactview source folder (extracted from the source archive)
+
+2. Build package steps:
+  A. Virtual machine method
+    - Create/use a virtual machine with the minimum supported ubuntu version
+    - install the required build dependencies:
+      * sudo apt-get install build-essential dh-make debhelper devscripts fakeroot intltool libgtk2.0-dev libglade2-dev libgnomevfs2-dev libgnome2-dev libgtop2-dev
+    - update the VM ubuntu system
+    - Run from a clean source directory that contains the debian folder:
+      * fakeroot debian/rules binary
+
+  B. sbuild method
+    - Create a sbuild chroot for the minimum supported ubuntu version
+      * mk-sbuild --arch=amd64 --name=lucid lucid  (Ubuntu 10.04 64 bit)
+      * mk-sbuild --arch=i386 --name=lucid lucid  (Ubunt 10.04 32 bit)
+    - Run 'debuild -S' to create .dsc file (required: clean source folder; debian folder included; .orig source folder in parent directory)
+    - Run sbuild to build the package:
+      * sbuild -A --arch i386 -d lucid ../netactview_0.6.2-1.dsc
+      * sbuild -A --arch amd64 -d lucid ../netactview_0.6.2-1.dsc
+    - the packages are in the configured sbuild build folder
+
+

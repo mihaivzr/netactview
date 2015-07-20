@@ -1,0 +1,130 @@
+netactview (0.6.4-1) stable; urgency=high
+
+  * Bugfix netactview release
+    - Fixed processing of commands with invalid utf-8 characters and a related
+      potential denial of service vulnerability.
+    - Fixed configuration file validation to not allow huge configuration files
+      and a related potential privilege authorization avoidance vulnerability.
+    - Fixed the display of multiple multicast dns connections listening on the
+      same port.
+    - Fixed the connections list save when saving as root to a folder that the
+      current sudo user can modify.
+    - Limited the DNS cache to prevent it from becoming a memory leak.
+    - Implemented a few other small fixes and defence in depth measures.
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Sun, 29 Mar 2015 20:58:06 +0300
+
+
+netactview (0.6.3-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Updated the location of the Wiki documentation to:
+      http://netactview.sourceforge.net/wiki/
+      The old wiki address will not be available after 2014-06-19 because
+      sourceforge.net retires the hosted apps.
+    - fixed the desktop file
+    - fixed and updated the man file
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Mon, 02 Jun 2014 11:16:01 +0300
+
+
+netactview (0.6.2-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed connections list refresh on 0 connections
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Wed, 09 Apr 2014 15:14:30 +0300
+
+
+netactview (0.6.1-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed a network statistics bug visible when using PPPoE connections
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Thu, 21 Jul 2011 22:22:42 +0300
+ 
+
+netactview (0.6-1) stable; urgency=low
+
+  * New netactview release
+    - Added filter operators
+    - Added save as CSV
+    - Added contextual column copy
+    - Added Italian and Russian translations.
+    - Added wiki documentation
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Sat, 4 Dec 2010 12:00:00 +0200
+
+
+netactview (0.5.1-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed a bug in window size saving that was visible on XFCE.
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Mon, 21 Dec 2009 12:00:00 +0200
+
+netactview (0.5-1) stable; urgency=low
+
+  * New netactview release
+    - Saving window size
+    - Added Portuguese and Estonian translations
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Sun, 20 Dec 2009 16:00:00 +0200
+
+netactview (0.4.1-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed a filtering bug.
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Tue, 23 Dec 2008 17:00:00 +0200
+
+netactview (0.4-1) stable; urgency=low
+
+  * New netactview release
+    - Added color highlight for new and closed connections
+    - Using gnome fixed width font for network statistics
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Wed, 12 Nov 2008 17:44:36 +0200
+
+netactview (0.3.1-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed closed UDP endpoints status
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Mon, 8 Sep 2008 16:04:36 +0200
+
+netactview (0.3-1) stable; urgency=low
+
+  * New netactview release
+    - Added filtering
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Mon, 12 May 2008 16:04:36 +0200
+
+netactview (0.2.2-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed low risk security vulerability in the restartart as root action
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Fri, 22 Feb 2008 16:04:36 +0200
+
+
+netactview (0.2.1-1) stable; urgency=low
+
+  * Bugfix netactview release
+    - Fixed incorrect process name display
+    - Improved application startup error checking
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Wed, 2 Jan 2008 10:10:00 +0200
+
+netactview (0.2-1) stable; urgency=low
+
+  * New netactview release
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Wed, 26 Dec 2007 00:10:55 +0200
+
+netactview (0.1-1) stable; urgency=low
+
+  * Initial release
+
+ -- Mihai Varzaru <mihaiv@gmail.com>  Tue, 18 Dec 2007 16:23:55 +0200
+
