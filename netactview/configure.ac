@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 dnl Created by Anjuta application wizard.
 
-AC_INIT(netactview, 0.6.4, http://sourceforge.net/projects/netactview/support)
+AC_INIT(netactview, 1.2.4, http://sourceforge.net/projects/netactview/support)
 
 AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])
 AM_CONFIG_HEADER(config.h)

@@ -47,8 +47,7 @@
 
 
 /*Column data types as used by compare functions*/
-typedef enum
-{
+typedef enum {
 	MVC_TYPE_STRING,
 	MVC_TYPE_INT,
 	MVC_TYPE_IP_ADDRESS,
@@ -58,8 +57,7 @@ typedef enum
 
 /* The main view columns.
  */
-typedef enum
-{
+typedef enum {
 	MVC_PROTOCOL,
 	MVC_LOCALHOST,
 	MVC_LOCALADDRESS,
@@ -80,8 +78,7 @@ typedef enum
 #define MVC_DATA_COLUMNSNUMBER 3
 #define MVC_VIEW_COLUMNSNUMBER (MVC_COLUMNSNUMBER-MVC_DATA_COLUMNSNUMBER)
 
-typedef struct
-{
+typedef struct {
 	ColumnIndex index;
 	const char *title;
 	ColumnDataType datatype;
@@ -90,8 +87,7 @@ typedef struct
 } ColumnData;
 
 /*Keep it comlete and sorted by column index*/
-static const ColumnData main_view_column_data[MVC_VIEW_COLUMNSNUMBER] = 
-{
+static const ColumnData main_view_column_data[MVC_VIEW_COLUMNSNUMBER] = {
 	{MVC_PROTOCOL, 		N_("Protocol"), 		MVC_TYPE_STRING, 0, TRUE},
 	{MVC_LOCALHOST, 	N_("Local Host"), 		MVC_TYPE_HOST, 0, FALSE},
 	{MVC_LOCALADDRESS, 	N_("Local Address"), 	MVC_TYPE_IP_ADDRESS, 0, FALSE},
@@ -105,15 +101,13 @@ static const ColumnData main_view_column_data[MVC_VIEW_COLUMNSNUMBER] =
 	{MVC_PROGRAMCOMMAND, N_("Command"), 		MVC_TYPE_STRING, 0, FALSE}
 };
 
-typedef enum
-{
+typedef enum {
 	LLS_NEW,
 	LLS_NORMAL,
 	LLS_CLOSED
 } ListLineState;
 
-typedef struct 
-{
+typedef struct {
 	GtkTreeIter *iter;
 	ListLineState state;
 	GTimer *addedtime;
@@ -122,12 +116,11 @@ typedef struct
 
 
 #define DEFAULT_CLOSED_SHOW_INT 3
-#define DEFAULT_CLOSED_COLOR "red"
+#define DEFAULT_CLOSED_COLOR "#4d4d4d"
 #define DEFAULT_NEW_SHOW_INT 3
 #define DEFAULT_NEW_COLOR "green"
 
-typedef struct
-{
+typedef struct {
 	GtkTreeView *main_view;
 	GtkListStore *main_store;
 	GtkTreeModel *main_store_filtered;
@@ -146,6 +139,7 @@ typedef struct
 	gboolean view_unestablished_connections, view_command;
 	gboolean view_colors;
 	gboolean show_closed_connections;
+	gboolean keep_closed_connections;
 	gboolean update_disabled, main_view_created, restart_requested;
 	volatile gboolean exit_requested;
 	char *save_location;
@@ -182,8 +176,7 @@ typedef struct
 	gboolean window_maximized;
 } MainWindowData;
 
-static void set_main_window_data_defaults (MainWindowData *m)
-{
+static void set_main_window_data_defaults (MainWindowData *m) {
 	memset(m, 0, sizeof(MainWindowData)); 
 	/*NULL, 0, and FALSE already set. Set it again only to make the option obvious.*/
 	m->exit_requested = FALSE;
@@ -195,6 +188,7 @@ static void set_main_window_data_defaults (MainWindowData *m)
 	m->view_remote_host = TRUE;
 	m->view_local_address = FALSE;
 	m->view_port_names = TRUE;
+	m->keep_closed_connections = TRUE;
 	m->view_unestablished_connections = TRUE;
 	m->view_command = FALSE;
 	m->view_colors = FALSE;
@@ -224,14 +218,13 @@ static gboolean connection_filtered(NetConnection *conn);
 #define connection_visible(conn) ((Mwd.view_unestablished_connections || (conn)->state==NC_TCP_ESTABLISHED) \
                                   && connection_filtered(conn))
 
+
 extern GladeXML *GladeXml;
 static MainWindowData Mwd;
 
 
-
 static void disable_update();
 static void restore_update();
-
 
 
 static gboolean check_int_range_complete (int *arr, int narr, int range_low, int range_hi)
@@ -255,8 +248,8 @@ static gboolean check_int_range_complete (int *arr, int narr, int range_low, int
 	return result;
 }
 
-static ListLineUserData *list_line_user_data_new (GtkTreeIter *iter)
-{
+
+static ListLineUserData *list_line_user_data_new (GtkTreeIter *iter) {
 	ListLineUserData *llud;
 	llud = (ListLineUserData*)g_malloc0(sizeof(ListLineUserData));
 	llud->iter = gtk_tree_iter_copy(iter);
@@ -265,8 +258,8 @@ static ListLineUserData *list_line_user_data_new (GtkTreeIter *iter)
 	return llud;
 }
 
-static void list_line_user_data_delete (ListLineUserData *llud)
-{
+
+static void list_line_user_data_delete (ListLineUserData *llud) {
 	if (llud->iter!=NULL)
 		gtk_tree_iter_free(llud->iter);
 	if (llud->addedtime!=NULL)
@@ -280,8 +273,7 @@ gboolean update_connections_hosts_on_idle(gpointer data);
 
 #define MAX_HOST_HASH_SIZE 1100100
 
-static void host_loader_thread_func (gpointer data, gpointer user_data)
-{
+static void host_loader_thread_func (gpointer data, gpointer user_data) {
 	char *ip = (char*)data;
 	char *host;
 	
@@ -315,8 +307,7 @@ static void host_loader_thread_func (gpointer data, gpointer user_data)
 	g_idle_add(&update_connections_hosts_on_idle, NULL);
 }
 
-static void init_host_loader ()
-{
+static void init_host_loader () {
 	Mwd.ip_host_hash = g_hash_table_new_full(&g_str_hash, &g_str_equal, &g_free, &g_free);
 	Mwd.requested_ip_hash = g_hash_table_new_full(&g_str_hash, &g_str_equal, &g_free, NULL);
 	Mwd.host_hash_lock = g_mutex_new();
@@ -324,14 +315,12 @@ static void init_host_loader ()
 	Mwd.host_loader_pool = g_thread_pool_new(&host_loader_thread_func, NULL, 5, TRUE, NULL);
 }
 
-static void stop_host_loader ()
-{
+static void stop_host_loader () {
 	g_thread_pool_free(Mwd.host_loader_pool, TRUE, TRUE);
 	Mwd.host_loader_pool = NULL;
 }
 
-static void free_host_loader ()
-{	
+static void free_host_loader () {	
 	g_hash_table_destroy(Mwd.ip_host_hash); Mwd.ip_host_hash = NULL;
 	g_hash_table_destroy(Mwd.requested_ip_hash); Mwd.requested_ip_hash = NULL;
 	g_mutex_free(Mwd.host_hash_lock); Mwd.host_hash_lock = NULL;
@@ -339,8 +328,7 @@ static void free_host_loader ()
 
 #define MAX_HOST_REQUEST_QUEUE_LEN 100100
 
-static char *get_host (const char *ip)
-{
+static char *get_host (const char *ip) {
 	char *host_name = NULL;
 	if (Mwd.exit_requested)
 		return NULL;
@@ -361,8 +349,7 @@ static char *get_host (const char *ip)
 	return (host_name != NULL) ? g_strdup(host_name) : NULL;
 }
 
-static gboolean update_net_connection_hosts (NetConnection *conn)
-{
+static gboolean update_net_connection_hosts (NetConnection *conn) {
 	gboolean updated = FALSE;
 	if (Mwd.view_local_host && conn->localhost == NULL && conn->localaddress != NULL)
 	{
@@ -377,9 +364,7 @@ static gboolean update_net_connection_hosts (NetConnection *conn)
 	return updated;
 }
 
-static void get_connection_port_names (NetConnection *conn, char **slocalport, 
-									  char **sremoteport)
-{
+static void get_connection_port_names (NetConnection *conn, char **slocalport, char **sremoteport) {
 	if (!Mwd.view_port_names)
 	{
 		*slocalport = get_port_text(conn->localport);
@@ -411,8 +396,7 @@ static void update_ports_text ()
 	}
 }
 
-static void list_append_connection (NetConnection *conn)
-{
+static void list_append_connection (NetConnection *conn) {
 	char *slocalport, *sremoteport, spid[48]="";
 	GtkTreeIter iter;
 	
@@ -515,7 +499,7 @@ static void delete_closed_connections ()
 	for (i=(int)Mwd.connections->len-1; i>=0; i--)
 	{
 		NetConnection* conn = g_array_index(Mwd.connections, NetConnection*, i);
-		if (conn->operation == NC_OP_DELETE)
+		if ((conn->operation == NC_OP_DELETE) && (!Mwd.keep_closed_connections))
 		{
 			list_remove_connection(conn);
 			list_free_net_connection(conn);
@@ -534,8 +518,8 @@ static void update_closed_connections ()
 		{
 			ListLineUserData *llud = (ListLineUserData*)conn->user_data;
 			g_assert(llud!=NULL && llud->closedtime!=NULL);
-			if (Mwd.manual_refresh || 
-				g_timer_elapsed(llud->closedtime, NULL) > DEFAULT_CLOSED_SHOW_INT)
+			if ((Mwd.manual_refresh || 
+				g_timer_elapsed(llud->closedtime, NULL) > DEFAULT_CLOSED_SHOW_INT) && (!Mwd.keep_closed_connections))
 			{
 				list_remove_connection(conn);
 				list_free_net_connection(conn);
@@ -1248,6 +1232,7 @@ static void load_preferences ()
 		get_boolean_preference(config_file, "View", "Command", &Mwd.view_command);
 		get_boolean_preference(config_file, "View", "PortName", &Mwd.view_port_names);
 		get_boolean_preference(config_file, "View", "UnestablishedConn", &Mwd.view_unestablished_connections);
+		get_boolean_preference(config_file, "View", "KeepClosedConn", &Mwd.keep_closed_connections);
 		get_boolean_preference(config_file, "View", "ClosedConn", &Mwd.show_closed_connections);
 		get_boolean_preference(config_file, "View", "Colors", &Mwd.view_colors);
 
@@ -1314,6 +1299,7 @@ static void save_preferences ()
 	g_key_file_set_boolean(config_file, "View", "PortName", Mwd.view_port_names);
 	g_key_file_set_boolean(config_file, "View", "UnestablishedConn", Mwd.view_unestablished_connections);
 	g_key_file_set_boolean(config_file, "View", "ClosedConn", Mwd.show_closed_connections);
+	g_key_file_set_boolean(config_file, "View", "KeepClosedConn", Mwd.keep_closed_connections);
 	g_key_file_set_boolean(config_file, "View", "Colors", Mwd.view_colors);
 	if (Mwd.window_maximized)
 	{
@@ -1362,6 +1348,8 @@ static void set_menu_preferences ()
 								   Mwd.view_unestablished_connections);
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuViewDeletedConn")), 
 								   Mwd.show_closed_connections);
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuViewKeepDeletedConn")), 
+								   Mwd.keep_closed_connections);
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuViewColors")), 
 								   Mwd.view_colors);
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuAutoRefreshEnabled")), 
@@ -2122,8 +2110,8 @@ static void on_menuAutoRefresh0_064_toggled (GtkCheckMenuItem *radiomenuitem, gp
 
 static void menuView_activate (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
 {
-	gtk_widget_set_sensitive(glade_xml_get_widget(GladeXml, "menuViewDeletedConn"), 
-							 Mwd.view_unestablished_connections);
+	gtk_widget_set_sensitive(glade_xml_get_widget(GladeXml, "menuViewDeletedConn"), Mwd.view_unestablished_connections);
+	gtk_widget_set_sensitive(glade_xml_get_widget(GladeXml, "menuViewKeepDeletedConn"), Mwd.show_closed_connections);
 }
 
 static void on_menuViewHostName_toggled (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
@@ -2151,9 +2139,21 @@ static void on_menuViewLocalAddress_toggled (GtkCheckMenuItem *checkmenuitem, gp
 
 static void on_menuViewCommand_toggled (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
 {
+	GtkToggleToolButton *toggle_tool_button;
+	toggle_tool_button = GTK_TOGGLE_TOOL_BUTTON(glade_xml_get_widget(GladeXml, "tbtnCommands"));
+	gtk_toggle_tool_button_set_active(toggle_tool_button, !checkmenuitem->active);
+
 	Mwd.view_command = checkmenuitem->active;
 	gtk_tree_view_column_set_visible(Mwd.main_view_columns[MVC_PROGRAMCOMMAND], Mwd.view_command);
 	update_connections_visibility();
+}
+
+static void on_tbtnCommands_clicked (GtkToolButton *toolbutton, gpointer user_data)
+{
+	GtkCheckMenuItem *menuItem;
+	GtkToggleToolButton *toggle_tool_button = GTK_TOGGLE_TOOL_BUTTON(toolbutton);
+	menuItem = GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuViewCommand"));
+	gtk_check_menu_item_set_active(menuItem, !gtk_toggle_tool_button_get_active(toggle_tool_button));
 }
 
 static void on_menuViewPortName_toggled (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
@@ -2161,6 +2161,23 @@ static void on_menuViewPortName_toggled (GtkCheckMenuItem *checkmenuitem, gpoint
 	Mwd.view_port_names = checkmenuitem->active;
 	update_ports_text();
 	update_connections_visibility();
+}
+
+static void on_tbtnClrConnections_clicked (GtkToolButton *toolbutton, gpointer user_data)
+{
+	GtkCheckMenuItem *menuItem;
+	GtkToggleToolButton *toggle_tool_button = GTK_TOGGLE_TOOL_BUTTON(toolbutton);
+	menuItem = GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuViewKeepDeletedConn"));
+	gtk_check_menu_item_set_active(menuItem, !gtk_toggle_tool_button_get_active(toggle_tool_button));
+}
+
+static void on_menuViewKeepDeletedConn_toggled (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
+{
+    GtkToggleToolButton *toggle_tool_button;
+	toggle_tool_button = GTK_TOGGLE_TOOL_BUTTON(glade_xml_get_widget(GladeXml, "tbtnClrConnections"));
+	gtk_toggle_tool_button_set_active(toggle_tool_button, !checkmenuitem->active);
+    
+	Mwd.keep_closed_connections = checkmenuitem->active;
 }
 
 static void on_menuViewDeletedConn_toggled (GtkCheckMenuItem *checkmenuitem, gpointer userdata)
@@ -2454,6 +2471,8 @@ static void connect_signals (GtkWidget *window)
 	glade_xml_signal_connect(GladeXml, "on_tbtnRefresh_clicked", G_CALLBACK(&on_tbtnRefresh_clicked));
 	glade_xml_signal_connect(GladeXml, "on_tbtnAutoRefresh_clicked", G_CALLBACK(&on_tbtnAutoRefresh_clicked));
 	glade_xml_signal_connect(GladeXml, "on_tbtnEstConnections_clicked", G_CALLBACK(&on_tbtnEstConnections_clicked));
+	glade_xml_signal_connect(GladeXml, "on_tbtnCommands_clicked", G_CALLBACK(&on_tbtnCommands_clicked));
+	glade_xml_signal_connect(GladeXml, "on_tbtnClrConnections_clicked", G_CALLBACK(&on_tbtnClrConnections_clicked));
 	glade_xml_signal_connect(GladeXml, "on_menuSave_activate", G_CALLBACK(&on_menuSave_activate));
 	glade_xml_signal_connect(GladeXml, "on_menuSaveAs_activate", G_CALLBACK(&on_menuSaveAs_activate));
 	glade_xml_signal_connect(GladeXml, "on_menuAdminMode_activate", G_CALLBACK(&on_menuAdminMode_activate));
@@ -2475,6 +2494,7 @@ static void connect_signals (GtkWidget *window)
 	glade_xml_signal_connect(GladeXml, "on_menuViewLocalHostName_toggled", G_CALLBACK(&on_menuViewLocalHostName_toggled));
 	glade_xml_signal_connect(GladeXml, "on_menuViewCommand_toggled", G_CALLBACK(&on_menuViewCommand_toggled));
 	glade_xml_signal_connect(GladeXml, "on_menuViewPortName_toggled", G_CALLBACK(&on_menuViewPortName_toggled));
+	glade_xml_signal_connect(GladeXml, "on_menuViewKeepDeletedConn_toggled", G_CALLBACK(&on_menuViewKeepDeletedConn_toggled));
 	glade_xml_signal_connect(GladeXml, "on_menuViewDeletedConn_toggled", G_CALLBACK(&on_menuViewDeletedConn_toggled));
 	glade_xml_signal_connect(GladeXml, "on_menuViewUnestablishedConn_toggled", G_CALLBACK(&on_menuViewUnestablishedConn_toggled));
 	glade_xml_signal_connect(GladeXml, "on_menuViewColors_toggled", G_CALLBACK(&on_menuViewColors_toggled));
@@ -2651,6 +2671,18 @@ GtkWidget* main_window_create (void)
 	Mwd.main_view_created = TRUE;
 	
 	return window;
+}
+
+void toggled_AutoRefreshEnabled (int state) {
+    GtkToggleToolButton *toggle_tool_button;
+	toggle_tool_button = GTK_TOGGLE_TOOL_BUTTON(glade_xml_get_widget(GladeXml, "tbtnAutoRefresh"));
+    gtk_toggle_tool_button_set_active(toggle_tool_button, state);
+
+	set_auto_refresh(state);
+
+	//GtkCheckMenuItem *menuItem;
+	//menuItem = GTK_CHECK_MENU_ITEM(glade_xml_get_widget(GladeXml, "menuAutoRefreshEnabled"));
+	//gtk_check_menu_item_set_active(menuItem, state);    
 }
 
 void main_window_data_cleanup ()

@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: netactview 0.6.4\n"
+"Project-Id-Version: netactview 1.2.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-29 19:35+0300\n"
 "PO-Revision-Date: 2015-03-25 09:59+0200\n"

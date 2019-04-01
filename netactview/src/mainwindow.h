@@ -22,5 +22,7 @@
 
 GtkWidget* main_window_create (void);
 void main_window_data_cleanup (void);
+void toggled_AutoRefreshEnabled (int state);
+
 
 #endif /*NACTV_MAINWINDOW_H*/

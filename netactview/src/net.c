@@ -460,7 +460,7 @@ char *get_full_port_text(int protocol, int port)
  * - Netactview needs to compare connections for a proper list update and may have connection 
  * tracking issues when there is no information to differentiate them. Even if in a static list 
  * the connections look the same the insertion and deletion order may be wrong. Also, the deletion 
- * and insertion of a new connection may be identified as a simple update. Netactview 0.6.4 handles 
+ * and insertion of a new connection may be identified as a simple update. Netactview 1.2.4 handles 
  * well multicast dns (as userspace udp always has inode information). Netactview 0.7 will do 
  * more checks to minimize the number of problematic situations (like verify connection states) 
  * and display a hint in the interface when the matching is unsure. 
