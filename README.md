@@ -7,3 +7,8 @@ This is an alternative project repository kept in sync with the main repository 
 [http://sourceforge.net/projects/netactview](http://sourceforge.net/projects/netactview)  
 
 ![Screenshot](https://raw.githubusercontent.com/mihaivzr/netactview/master/screenshots/netactview-i2.jpg)
+
+
+(2022-08-07, Mihai Varzaru, mihaiv@gmail.com)  
+I need competent and trustable partners to help continue Netactview. Due to an unknown health condition I don't expect to be able to create a proper updated version of Netactview. While I am not aware of required critical patches at the moment, the application needs normal updates to avoid becoming obsolete.  
+https://mihaiv.wordpress.com/2022/08/07/i-need-competent-and-trustable-partners-to-help-continue-a-significant-open-source-project/  
